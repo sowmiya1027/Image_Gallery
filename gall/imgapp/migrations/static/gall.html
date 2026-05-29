@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>Photo Gallery</title>
+
+    <style>
+        h1{
+            background-color:lavender;
+            color:black;
+            text-align:center;
+        }
+        .image{
+            border: solid 3px black;
+            width: 430px;
+            height:430px;
+            margin-left: 550px;
+            margin-top: 100px;
+            background-color:peachpuff;
+            border-radius: 10px;
+        }
+        .click{
+            display: flex;
+            justify-content: space-around;
+        }
+        h3{
+            display: flex;
+            justify-content: center;
+        }
+        img{
+            margin-left:50px;
+            margin-top: 20px;
+            border: solid 10px black;
+        }
+        body{
+            background-image:url("Gallerybg.jpeg");
+            background-size:cover;
+        }
+        .footer{
+            position:fixed;
+            bottom:0%;
+            width:100%;
+            font-size:large;
+            background-color:black;
+            color:white;
+            text-align: center;
+            padding: 5px;
+            left:0%;
+        }
+    </style>
+
+    <script>
+        let Index=0;
+
+        var Images=[
+            {source: "Switzerland.jpeg",caption:"SWITZERLAND"},
+            {source: "Japan.jpeg",caption:"JAPAN"},
+            {source: "Singapore.jpeg",caption:"SINGAPORE"},
+            {source: "US.jpeg",caption:"UNITED STATES"},
+            {source: "France.jpeg",caption:"FRANCE"}
+        ];
+
+        function display()
+        {
+            document.getElementById("editid").src=Images[Index].source;
+            document.getElementById("headid").innerHTML=Images[Index].caption;
+        }
+
+        function prev()
+        {
+            Index--;
+            if(Index<0)
+                Index=Images.length-1;
+            display();
+        }
+
+        function next()
+        {
+            Index++;
+            if(Index>=Images.length)
+                Index=0;
+            display();
+        }
+    </script>
+
+</head>
+
+<body onload="display()">
+
+    <h1>My Dream Destinations</h1>
+
+    <div class="image">
+        <img src="Switzerland.jpeg" id="editid" width="300" height="300">
+        <h3 id="headid"></h3>
+
+        <div class="click">
+            <button onclick="prev()">Previous</button>
+            <button onclick="next()">Next</button>
+        </div>
+
+        <div class="footer">
+            Designed and Developed by Sowmiya R
+        </div>
+    </div>
+
+</body>
+</html>
